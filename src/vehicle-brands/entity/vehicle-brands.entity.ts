@@ -1,20 +1,12 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, BeforeInsert,BeforeUpdate} from 'typeorm';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, BeforeInsert, BeforeUpdate, ManyToOne, JoinColumn } from 'typeorm';
+
 @Entity()
-export class Users extends BaseEntity {
+export class vehicle_brands extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    id_brand: string;
 
     @Column()
     name: string;
-
-    @Column({unique: true})
-    username: string;
-
-    @Column()
-    password: string;
-
-    @Column()
-    is_admin: boolean;
 
     @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     created_at: Date;
